@@ -1,0 +1,124 @@
+.App {  
+    background-image: url("../img/sfondo3.png");
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.form {
+    width: 420px;
+    height: 80%;
+    box-shadow: rgb(0 0 0 / 25%) 3px 3px 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 8px;
+    background-color: white;
+}
+
+.form-header {
+    height: 10%;
+    border-bottom: 2px solid black;
+    margin: 1vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.form-title {
+    text-align: center;
+    margin-bottom: 1em;
+    font-size: 24px;
+    color: rgb(34, 34, 34);
+    font-weight: 800;
+}
+
+.form-adding {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#addIngridient {
+    height: 40px;
+    border-radius: 50%;
+    vertical-align: bottom;
+}
+
+.form-footer {
+    border-top: 2px solid black;
+    margin: 1vw;
+    display: flex;
+    flex-direction: row;
+}
+
+.form-img-search {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-radius: 2vw;
+    margin: 1vw;
+    width: 29%;
+}
+
+.form-img-home {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-radius: 2vw;
+    margin: 1vw;
+    width: 29%;
+}
+
+.form-img-profile {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-radius: 2vw;
+    margin: 1vw;
+    width: 29%;
+}
+
+.form-post {
+    width: 93%;
+    height: 65%;
+    box-shadow: rgb(0 0 0 / 25%) 3px 3px 30px;
+    border-radius: 2vw;
+    margin: 1vw;
+}
+
+.form-search {
+    width: 93%;
+    height: 76%;
+    border: 1px solid black;
+    border-radius: 2vw;
+    margin: 1vw;
+}
+
+.form-add {
+    width: 20%;
+}
+
+.form-photo {
+    width: 20%;
+}
+
+.form-info {
+    width: 60%;
+}
+
+.form-added {
+    box-shadow: rgb(0 0 0 / 25%) 3px 3px 30px;
+    border-radius: 8px;
+}
+
+#addIngridient {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.form-button {
+    display: flex;
+    justify-content: space-between;
+}
