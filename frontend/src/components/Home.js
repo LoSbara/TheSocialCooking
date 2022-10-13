@@ -4,6 +4,8 @@ import search from '../img/search.png';
 import cook from '../img/chef.png';
 import account from '../img/account.png';
 import { Link } from "react-router-dom";
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const Home = () => {
 return (

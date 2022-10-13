@@ -1,0 +1,21 @@
+package services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import repository.UserRepository;
+
+@Service
+public class UserService {
+	@Autowired
+	UserRepository repo;
+	
+	private final String REGEX_PASSWORD="(?=^.{8,}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$\"";
+	
+	private final String REGEX_EMAIL="";
+	
+	@
+	public boolean login(String email, String password) {
+		
+	}
+}

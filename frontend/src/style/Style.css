@@ -1,12 +1,12 @@
 .App {  
-    background-image: url("../img/sfondo3.png");
+    background-image: url("../img/sfondo.jpg");
 }
 
 .form-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
 }
 
@@ -47,6 +47,14 @@
     height: 40px;
     border-radius: 50%;
     vertical-align: bottom;
+}
+
+#removeIngridient {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-weight: bold;
+    padding: 0 1px 19px 0;
 }
 
 .form-footer {

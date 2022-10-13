@@ -1,0 +1,20 @@
+package request.recipe;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+public class SearchByIngridientDTO {
+	private String ingridient;
+
+	public String getIngridient() {
+		return ingridient;
+	}
+
+	public void setIngridient(String ingridient) {
+		this.ingridient = ingridient;
+	}
+	
+	@JsonIgnore
+	public boolean isValid() {
+		return !ingridient.isEmpty();
+	}
+}

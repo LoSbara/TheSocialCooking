@@ -1,0 +1,10 @@
+package controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import services.RecipeService;
+
+public class RecipesController {
+	@Autowired
+	RecipeService service;
+}

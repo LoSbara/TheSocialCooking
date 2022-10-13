@@ -1,0 +1,22 @@
+package request.recipe;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import model.User;
+
+public class IdUserDTO {
+	private User user;
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
+	@JsonIgnore
+	public long idUser() {
+		return user.getId();
+	}
+}

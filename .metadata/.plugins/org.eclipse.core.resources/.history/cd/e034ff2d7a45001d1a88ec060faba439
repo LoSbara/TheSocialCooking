@@ -1,0 +1,33 @@
+package services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import model.Recipe;
+import repository.RecipeRepository;
+
+public class RecipeService{
+	@Autowired
+	RecipeRepository repo;
+	
+	public boolean adding(Recipe r) {
+		try {
+			r = repo.save(r);
+			return r!=null;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+	
+	public List<Recipe> searchByName(String name) {
+		return searchByName(name);
+	}
+	
+	public List<Recipe> searchByDescription(String description) {
+		return searchByDescription(description);
+	}
+
+	public List<Recipe> searchByIngridients(List<String> ingridients) {
+		return searchByIngridients(ingridients);
+	}
+}

@@ -1,0 +1,62 @@
+package controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import model.Recipe;
+import model.User;
+import request.recipe.AddingDTO;
+import request.recipe.IdUserDTO;
+import request.recipe.SearchByDescriptionDTO;
+import request.recipe.SearchByIngridientDTO;
+import request.recipe.SearchByNameDTO;
+import request.user.LoginDTO;
+import request.user.RegistrationDTO;
+import response.recipe.RecipeListResponseDTO;
+import services.RecipeService;
+
+public class RecipesController {
+	@Autowired
+	RecipeService service;
+	
+	@RequestMapping(method= RequestMethod.POST, path = "/adding")
+	public ResponseEntity addingControl(@RequestBody AddingDTO request) {
+		if (request.isValid()) {
+			Recipe r = new Recipe(request.getImg(),
+							  request.getName(),
+							  request.getDescription(),
+							  request.getIngridients(),
+							  request.getUser());
+			if (service.adding(r)) {
+				return ResponseEntity.status(200).build();
+			} else {
+				return ResponseEntity.status(409).build();
+			}
+		} else {
+			return ResponseEntity.status(403).build();
+		}
+	}
+	
+	@RequestMapping(method= RequestMethod.POST, path = "/search")
+	public ResponseEntity<RecipeListResponseDTO> searchControl(@RequestBody SearchByNameDTO request) {
+		List<Recipe> list= service.searchByName(request.getName());
+		return ResponseEntity.status(200).body(new RecipeListResponseDTO(list));
+	}
+	
+	@RequestMapping(method= RequestMethod.POST, path = "/home")
+	public ResponseEntity homeControl() {
+		List<Recipe> list = service.postRecipes();
+		return ResponseEntity.status(200).build();
+	}
+	
+	@RequestMapping(method= RequestMethod.POST, path = "/profile")
+	public ResponseEntity profileControl(@RequestBody IdUserDTO request) {
+		List<Recipe> list = service.postUserRecipes(request.idUser());
+		return ResponseEntity.status(200).build();
+	}
+}

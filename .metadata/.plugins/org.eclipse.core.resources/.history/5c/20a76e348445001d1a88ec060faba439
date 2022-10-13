@@ -1,0 +1,20 @@
+package request.recipe;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+public class SearchByDescriptionDTO {
+	private String description;
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	@JsonIgnore
+	public boolean isValid() {
+		return !description.isEmpty();
+	}
+}

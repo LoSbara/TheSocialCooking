@@ -1,0 +1,21 @@
+package repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import model.Recipe;
+
+@Repository
+public interface RecipeRepository {
+	
+	@Query("select r from Recipe r where r.user = :user")
+	public List<Recipe> listRecipes();
+
+	@Query("select r form Recipe r where r.name = :name")
+	public Recipe searchRecipesByName();
+	
+	@Query("select r form Recipe r where r.ingridients = :ingridients")
+	public Recipe searchRecipesByIngridient();
+}

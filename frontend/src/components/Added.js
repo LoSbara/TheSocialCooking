@@ -5,6 +5,7 @@ import '../style/Style.css';
 import Form from 'react-bootstrap/Form';
 import cibo from "../img/diet.png";
 import { Link } from "react-router-dom";
+import { Row, Col } from 'react-bootstrap';
 
 
 const imageMimeType = /image\/(png|jpg|jpeg)/i;
@@ -19,6 +20,12 @@ function Added() {
     setIngredients(
       [...ingredients, adding]
       )
+  }
+
+  function removeIngridients(x) {
+    setIngredients(
+      ingredients = ingredients.splice(x, 1)
+    )
   }
 
   const changeHandler = (e) => {
@@ -90,7 +97,7 @@ function Added() {
             <div className = "form-adding">
               <form>
                 <div className="form-group">
-                  <input type="text" value={adding} onChange={(e) => setAdd(e.target.value)} className="form-control" id="adding" aria-describedby="emailHelp" placeholder="Enter ingridient" />
+                  <input type="text" value={adding} onChange={(e) => setAdd(e.target.value)} className="form-control" id="adding" onfocus="this.value=''" aria-describedby="emailHelp" placeholder="Enter ingridient" />
                 </div>
               </form>
               <button type="submit" className="btn btn-outline-secondary" id = "addIngridient" onClick = {() => addIngridients(adding)}>+</button>
@@ -99,7 +106,16 @@ function Added() {
           <ListGroup className="list-group-flush">
           {
             ingredients.map(x => (
-              <ListGroup.Item>{x}</ListGroup.Item>
+              <ListGroup.Item className = "list-item">
+                <Row>
+                  <Col md = "8">
+                    <span className = "item">{x}</span>
+                  </Col>
+                  <Col md = "4">
+                    <button type="submit" className="btn btn-outline-danger" id = "removeIngridient" onClick = {() => removeIngridients(x)}>-</button>
+                  </Col>
+                </Row>
+              </ListGroup.Item>
             ))
           }
           </ListGroup>

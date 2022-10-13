@@ -1,0 +1,26 @@
+package services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Service;
+
+import model.Recipe;
+import repository.RecipeRepository;
+
+public class RecipeService extends JpaRepository<Recipe, Long> {
+	@Autowired
+	RecipeRepository repo;
+	
+	public boolean adding(Recipe r) {
+		try {
+			if(!r.getName().isEmpty() && !r.getDescription().isEmpty() && !r.getIngridients().isEmpty()) {
+				r = repo.save(r);
+				return r!=null;
+			} else {
+				return false;
+			}
+		} catch (Exception e) {
+			return false;
+		}
+	}
+}

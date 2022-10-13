@@ -1,0 +1,23 @@
+package services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import model.Recipe;
+import repository.RecipeRepository;
+
+public class RecipeService{
+	@Autowired
+	RecipeRepository repo;
+	
+	public boolean adding(Recipe r) {
+		try {
+			if(!r.getName().isEmpty() && !r.getDescription().isEmpty() && !r.getIngridients().isEmpty()) {
+				r = repo.save(r);
+				return r!=null;
+			} else {
+				return false;
+			}
+		} catch (Exception e) {
+			return false;
+		}
+	}
+}
