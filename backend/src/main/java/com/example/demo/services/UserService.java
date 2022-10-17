@@ -11,7 +11,7 @@ public class UserService {
 	@Autowired
 	UserRepository repo;
 	
-	private final String REGEX_PASSWORD="(?=^.{8,}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$\"";
+	private final String REGEX_PASSWORD="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$";
 	
 	private final String REGEX_EMAIL="^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
 	

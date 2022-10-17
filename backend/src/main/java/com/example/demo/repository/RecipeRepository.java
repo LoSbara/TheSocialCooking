@@ -17,6 +17,6 @@ public interface RecipeRepository extends JpaRepository<Recipe, Long>{
 	@Query("select r from Recipe r")
 	public List<Recipe> listRecipes();
 
-	@Query("select r form Recipe r where r.name = :name")
+	@Query("select r from Recipe r where r.name = :name")
 	public List<Recipe> searchRecipesByName(String name);
 }
