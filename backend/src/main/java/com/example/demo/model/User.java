@@ -71,7 +71,7 @@ public class User {
 	public void setRepeatPassword(String repeatPassword) {
 		this.repeatPassword = repeatPassword;
 	}
-	
+
 	
 	
 }

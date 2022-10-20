@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,8 +36,22 @@ public class UserController {
 		}
 	}
 	
-	@RequestMapping(method = RequestMethod.POST, path = "/registration")
+	@RequestMapping(method = RequestMethod.POST, path = "/registration", consumes = MediaType.APPLICATION_JSON_VALUE)
+	public void registrationControl() {
+		
+		System.out.println("begin registration");
+	}
+	
+	/*
+	@RequestMapping(method = RequestMethod.POST, path = "/registration", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<LoginUserResponseDTO> registrationControl(@RequestBody RegistrationDTO request) {
+		
+		System.out.println("begin registration");
+		
+		if(true) {
+			return ResponseEntity.status(200).build();
+		}
+		
 		if (request.isValid()) {
 			User u = new User(request.getFullName(),
 							  request.getEmail(),
@@ -51,5 +66,6 @@ public class UserController {
 			return ResponseEntity.status(403).build();
 		}
 	}
+	*/
 	
 }

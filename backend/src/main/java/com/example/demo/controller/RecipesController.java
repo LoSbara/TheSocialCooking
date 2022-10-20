@@ -22,8 +22,15 @@ public class RecipesController {
 	@Autowired
 	RecipeService service;
 	
-	@RequestMapping(method= RequestMethod.POST, path = "/adding")
-	public ResponseEntity addingControl(@RequestBody AddingDTO request) {
+	@RequestMapping(method= RequestMethod.POST, path = "/adding", consumes = "text/plain")
+	public ResponseEntity addingControl(@RequestBody String request) {
+		
+		System.out.println("adding: " + request);
+		
+		
+		return ResponseEntity.status(200).build();
+		
+		/*
 		if (request.isValid()) {
 			Recipe r = new Recipe(request.getImg(),
 							  request.getName(),
@@ -38,6 +45,7 @@ public class RecipesController {
 		} else {
 			return ResponseEntity.status(403).build();
 		}
+		*/
 	}
 	
 	@RequestMapping(method= RequestMethod.POST, path = "/search")
