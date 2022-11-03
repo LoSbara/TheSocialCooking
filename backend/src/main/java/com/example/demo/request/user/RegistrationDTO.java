@@ -5,6 +5,18 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class RegistrationDTO {
 	private String fullName, email, password, repeatPassword;
 
+	public RegistrationDTO(){
+		
+	}
+	
+	public RegistrationDTO(String fullName, String email, String password, String repeatPassword) {
+		super();
+		this.fullName = fullName;
+		this.email = email;
+		this.password = password;
+		this.repeatPassword = repeatPassword;
+	}
+
 	public String getFullName() {
 		return fullName;
 	}

@@ -36,36 +36,37 @@ public class UserController {
 		}
 	}
 	
-	@RequestMapping(method = RequestMethod.POST, path = "/registration", consumes = MediaType.APPLICATION_JSON_VALUE)
-	public void registrationControl() {
-		
-		System.out.println("begin registration");
-	}
+//	@RequestMapping(method = RequestMethod.POST, path = "/registration", consumes = MediaType.APPLICATION_JSON_VALUE)
+//	public void registrationControl() {
+//		
+//		System.out.println("begin registration");
+//	}
 	
-	/*
+	
 	@RequestMapping(method = RequestMethod.POST, path = "/registration", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<LoginUserResponseDTO> registrationControl(@RequestBody RegistrationDTO request) {
 		
 		System.out.println("begin registration");
 		
-		if(true) {
-			return ResponseEntity.status(200).build();
-		}
 		
-		if (request.isValid()) {
-			User u = new User(request.getFullName(),
-							  request.getEmail(),
-							  request.getPassword(),
-							  request.getRepeatPassword());
-			if (service.registration(u)) {
-				return ResponseEntity.status(200).body(new LoginUserResponseDTO(u.getId()));
-			} else {
-				return ResponseEntity.status(409).build();
-			}
-		} else {
+		if (!request.isValid()) {
+			System.out.println("not valid");
+			
 			return ResponseEntity.status(403).build();
 		}
+		
+		User u = new User(
+		  request.getFullName(),
+		  request.getEmail(),
+		  request.getPassword(),
+		  request.getRepeatPassword());
+		if (service.registration(u)) {
+			System.out.println("registered");
+			
+			return ResponseEntity.status(200).body(new LoginUserResponseDTO(u.getId()));
+		}
+		System.out.println("not registered");
+		
+		return ResponseEntity.status(409).build();
 	}
-	*/
-	
 }
