@@ -14,7 +14,7 @@ return (
 			<div className = "form-header">
 				<span className = "form-title">The Social Cooking</span>
 				<span className = "form-signin">
-				<Link to = "/auth"><button type="submit" className="btn btn-primary">Sign In</button></Link>
+				<Link to = "/user/login"><button type="submit" className="btn btn-primary">Logout</button></Link>
 				</span>
 			</div>
 			<div className = "form-post"></div>
